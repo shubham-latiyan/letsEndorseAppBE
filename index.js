@@ -18,7 +18,7 @@ const option = {
     useNewUrlParser: true
 };
 // connect to db
-mongoose.connect('mongodb://dbUser:user123@ds127094.mlab.com:27094/custom_users', option, function (err) {
+mongoose.connect(process.env.mongoDBUri, option, function (err) {
     if (err)
         console.log(err);
     else
