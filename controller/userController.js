@@ -73,7 +73,7 @@ exports.signInUsers = async function (req, res) {
   else {
     const valid = await bcrypt.compare(req.body.password, data.password)
     if (valid) {
-      const token = await jwt.sign({ userId: data._id }, "jwtsecret123")
+      const token = await jwt.sign({ userId: data._id }, process.env.jwtSecret)
       res.json({
         success: true,
         token,
