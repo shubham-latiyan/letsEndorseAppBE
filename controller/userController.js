@@ -25,7 +25,7 @@ exports.signUpUsers = async function (req, res) {
       })
 
       let savedUser = await newUser.save();
-      const token = await jwt.sign({ userId: newUser._id }, "jwtsecret123")
+      const token = await jwt.sign({ userId: newUser._id }, process.env.jwtSecret)
 
       // userObject = Object.assign(userpicked, {
       //   exp: Math.floor(moment().toDate() / 1000) + 60 * 60 * 3
